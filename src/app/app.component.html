@@ -1,0 +1,38 @@
+<div class="tabela">
+  <div class="conteudo">
+    <p-table
+      *ngIf="!!artigos && artigos.length > 0"
+      [value]="artigos"
+      dataKey="id"
+      [paginator]="true"
+      paginatorPosition="both"
+      [lazy]="true"
+      [totalRecords]="totalArtigos"
+      [showCurrentPageReport]="true"
+      currentPageReportTemplate="Exibindo {first} - {last} de {totalRecords} artigos"
+      [rows]="10"
+      (onPage)="mudouPagina($event)"
+    >
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Autor</th>
+          <th>Titulo</th>
+          <th>Conteudo</th>
+          <th>Descrição</th>
+          <th>Data publicação</th>
+          <th>Link</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-artigo>
+        <tr>
+            <td>{{artigo.author}}</td>
+            <td>{{artigo.title}}</td>
+            <td>{{artigo.content}}</td>
+            <td>{{artigo.description}}</td>
+            <td>{{artigo.publishedAt}}</td>
+            <td>{{artigo.url}}</td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+</div>
