@@ -19,7 +19,7 @@
           <th>Titulo</th>
           <th>Conteudo</th>
           <th>Descrição</th>
-          <th>Data publicação</th>
+          <th>Publicação</th>
           <th>Link</th>
         </tr>
       </ng-template>
@@ -29,8 +29,13 @@
             <td>{{artigo.title}}</td>
             <td>{{artigo.content}}</td>
             <td>{{artigo.description}}</td>
-            <td>{{artigo.publishedAt}}</td>
-            <td>{{artigo.url}}</td>
+            <td>{{formatarData(artigo.publishedAt)}}</td>
+            <td>
+              <a [href]="artigo.url">
+                  <i class="pi pi-external-link">
+                  </i>
+                </a>
+            </td>
         </tr>
       </ng-template>
     </p-table>

@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { TableModule } from 'primeng/table';
-import { FieldsetModule } from 'primeng/fieldset';
 
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -14,7 +13,6 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     HttpClientModule,
     TableModule,
-    FieldsetModule
   ],
   providers: [],
   bootstrap: [AppComponent]

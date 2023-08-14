@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ArtigoService } from './service/artigo.service';
 import { Artigo } from './models/artigo';
 import { first } from 'rxjs';
+import { format } from 'date-fns';
 
 @Component({
   selector: 'app-root',
@@ -30,7 +31,10 @@ export class AppComponent implements OnInit {
   }
 
   mudouPagina({ first, rows }: { first: number; rows: number }) {
-    console.log(first, rows)
     this.buscarArtigos(first == 0 ? 1 : (first / 10) + 1);
+  }
+
+  formatarData(data: string) {
+    return data ? format(new Date(data), 'dd/MM/yyyy') : 'Não Informado';
   }
 }
