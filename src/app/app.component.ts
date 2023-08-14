@@ -3,6 +3,7 @@ import { ArtigoService } from './service/artigo.service';
 import { Artigo } from './models/artigo';
 import { first } from 'rxjs';
 import { format } from 'date-fns';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-root',
@@ -16,7 +17,10 @@ export class AppComponent implements OnInit {
   primeiroArtigo = 0;
   travarTela = false;
 
-  constructor(private service: ArtigoService) {
+  constructor(
+    private service: ArtigoService,
+    private messageService: MessageService
+    ) {
   }
 
   ngOnInit(): void {
@@ -25,14 +29,28 @@ export class AppComponent implements OnInit {
 
   buscarArtigos(pagina: number) {
     this.travarTela = true;
-    this.service.buscarArtigos(pagina).subscribe(res => {
-      this.totalArtigos = res.totalResults;
-      this.artigos = res.articles;
-      this.travarTela = false;
-    });
+    this.service.buscarArtigos(pagina).subscribe(
+      {
+        next: (res) => {
+          this.totalArtigos = res.totalResults;
+          this.artigos = res.articles;
+          this.travarTela = false;
+        },
+        error: (err) => {
+          this.messageService.add({
+            severity: 'error',
+            summary: 'Erro ao buscar artigos',
+            detail: err.error.message
+          });
+          this.primeiroArtigo = 0;
+          this.buscarArtigos(1);
+          this.travarTela = false;
+        }
+      }
+    );
   }
 
-  mudouPagina({ first, rows }: { first: number; rows: number }) {
+  mudouPagina({ first }: { first: number; rows: number }) {
     this.buscarArtigos(first == 0 ? 1 : (first / 10) + 1);
   }
 
