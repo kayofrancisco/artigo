@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { TableModule } from 'primeng/table';
+import { BlockUIModule } from 'primeng/blockui';
 
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -13,6 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     HttpClientModule,
     TableModule,
+    BlockUIModule
   ],
   providers: [],
   bootstrap: [AppComponent]

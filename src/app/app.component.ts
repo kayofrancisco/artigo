@@ -14,7 +14,7 @@ export class AppComponent implements OnInit {
   artigos: Artigo[] = [];
   totalArtigos = 0;
   primeiroArtigo = 0;
-
+  travarTela = false;
 
   constructor(private service: ArtigoService) {
   }
@@ -24,9 +24,11 @@ export class AppComponent implements OnInit {
   }
 
   buscarArtigos(pagina: number) {
+    this.travarTela = true;
     this.service.buscarArtigos(pagina).subscribe(res => {
       this.totalArtigos = res.totalResults;
       this.artigos = res.articles;
+      this.travarTela = false;
     });
   }
 
