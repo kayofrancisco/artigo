@@ -16,25 +16,25 @@
       <ng-template pTemplate="header">
         <tr>
           <th>Autor</th>
-          <th style="width: 400px;">Titulo</th>
-          <th>Conteudo</th>
-          <th>Descrição</th>
-          <th>Publicação</th>
-          <th>Link</th>
+          <th >Titulo</th>
+          <th style="width: 100px;">Conteudo</th>
+          <th style="width: 100px;">Descrição</th>
+          <th style="width: 100px;">Publicação</th>
+          <th style="width: 20px;">Link</th>
         </tr>
       </ng-template>
       <ng-template pTemplate="body" let-artigo>
         <tr>
             <td>{{artigo.author}}</td>
-            <td style="width: 400px;">{{artigo.title}}</td>
-            <td>
+            <td >{{artigo.title}}</td>
+            <td style="width: 100px;">
               <p-button icon="pi pi-eye" label="Conteudo" (onClick)="abrirModal('Conteúdo', artigo.content)"> </p-button>
             </td>
-            <td>
+            <td style="width: 100px;">
               <p-button icon="pi pi-eye" label="Descrição" (onClick)="abrirModal('Descrição', artigo.description)"> </p-button>
             </td>
-            <td>{{formatarData(artigo.publishedAt)}}</td>
-            <td>
+            <td style="width: 100px;">{{formatarData(artigo.publishedAt)}}</td>
+            <td style="width: 20px;">
               <a [href]="artigo.url">
                   <i class="pi pi-external-link">
                   </i>
