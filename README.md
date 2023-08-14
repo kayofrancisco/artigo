@@ -8,6 +8,9 @@ O projeto foi gerado com a versão 16.0.2 do angular.
 - Estilização com PrimeNg
 - Formatação de datas
 - Modal para exibir textos maiores, pois nao cabe na tabela
+- Loading com bloqueio de tela até que alguma requisição seja completada
+- Link para imagens
+- Toast para exibir mensagem de erro
 
 ## Rodar Projeto
 
