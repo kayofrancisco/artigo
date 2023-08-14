@@ -16,7 +16,7 @@
       <ng-template pTemplate="header">
         <tr>
           <th>Autor</th>
-          <th>Titulo</th>
+          <th style="width: 400px;">Titulo</th>
           <th>Conteudo</th>
           <th>Descrição</th>
           <th>Publicação</th>
@@ -26,9 +26,13 @@
       <ng-template pTemplate="body" let-artigo>
         <tr>
             <td>{{artigo.author}}</td>
-            <td>{{artigo.title}}</td>
-            <td>{{artigo.content}}</td>
-            <td>{{artigo.description}}</td>
+            <td style="width: 400px;">{{artigo.title}}</td>
+            <td>
+              <p-button icon="pi pi-eye" label="Conteudo" (onClick)="abrirModal('Conteúdo', artigo.content)"> </p-button>
+            </td>
+            <td>
+              <p-button icon="pi pi-eye" label="Descrição" (onClick)="abrirModal('Descrição', artigo.description)"> </p-button>
+            </td>
             <td>{{formatarData(artigo.publishedAt)}}</td>
             <td>
               <a [href]="artigo.url">
@@ -46,6 +50,12 @@
   <p-toast></p-toast>
 </div>
 
-<p-blockUI [blocked]="travarTela">
+<p-dialog [header]="header" [modal]="true" [(visible)]="abreModal" [style]="{width: '80vw'}">
+  <p>
+    {{conteudo}}
+  </p>
+</p-dialog>
+
+  <p-blockUI [blocked]="travarTela">
   <i class="pi pi-spin pi-spinner" style="font-size: 60px"></i>
 </p-blockUI>

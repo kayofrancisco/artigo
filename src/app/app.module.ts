@@ -4,6 +4,8 @@ import { TableModule } from 'primeng/table';
 import { BlockUIModule } from 'primeng/blockui';
 import { ToastModule } from 'primeng/toast';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DialogModule } from 'primeng/dialog';
+import { ButtonModule } from 'primeng/button';
 
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -19,7 +21,9 @@ import { MessageService } from 'primeng/api';
     TableModule,
     BlockUIModule,
     ToastModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    DialogModule,
+    ButtonModule
   ],
   providers: [MessageService],
   bootstrap: [AppComponent]

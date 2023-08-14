@@ -23,13 +23,17 @@ export class AppComponent implements OnInit {
           name: "MarketWatch"
         },
       title: 'Company Close Updates: Workhorse Group Inc. stock underperforms Monday when compared to competitors',
-      url: '"https://www.marketwatch.com/data-news/workhorse-group-inc-stock-underperforms-monday-when-compared-to-competitors-3e488c4-8c8113957e60',
+      url: 'https://www.marketwatch.com/data-news/workhorse-group-inc-stock-underperforms-monday-when-compared-to-competitors-3e488c4-8c8113957e60',
       urlToImage: '"https://images.mktw.net/im-220105/social'
     }
   ];
+
   totalArtigos = 1;
   primeiroArtigo = 0;
   travarTela = false;
+  header = '';
+  conteudo = '';
+  abreModal = false;
 
   constructor(
     private service: ArtigoService,
@@ -70,5 +74,11 @@ export class AppComponent implements OnInit {
 
   formatarData(data: string) {
     return data ? format(new Date(data), 'dd/MM/yyyy') : 'Não Informado';
+  }
+
+  abrirModal(titulo: string, conteudo: string) {
+    this.header = titulo;
+    this.conteudo = conteudo;
+    this.abreModal = true;
   }
 }
