@@ -2,7 +2,7 @@
 
 O projeto foi gerado com a versão 16.0.2 do angular.
 
-## Técnicar/ferramentas utilizadas
+## Técnicas/ferramentas utilizadas
 
 - Tabela Paginada por server side, para não comprometer performance do sistema
 - Estilização com PrimeNg
